@@ -1,0 +1,180 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+:root{
+    --maincolor  : gold;
+    --seccol : goldenrod;
+    --shadow : lightgrey;
+    --black : #010101;
+}
+
+.container{
+    background-image: url("./image/brthd.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    height: 100vh;
+    display: flex;
+    padding: 7rem;
+    justify-content: start;
+    align-items: center;
+}
+
+.card{
+    position: relative;
+    z-index: 1;
+    height: 42rem;
+    max-width: 32rem;
+    transform-style:preserve-3d;
+    transform:perspective(2000px);
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+.card::after{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 90%;
+    height: 1em;
+    transform: rotate(-2.5deg);
+    z-index: -1;
+    background: var(--shadow);
+    transition: .5s;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.front{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 30rem 12rem;
+    transform-origin: left;
+    transition: 1s;
+    z-index: 1;
+}
+
+.back{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid var(--shadow);
+    z-index: -1;
+    border-radius: 1em;
+    padding: 1.85rem;
+    background-image: url("./image/teddy.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+.card:hover{
+    z-index: 1111;
+    transform: perspective(2000px);
+}
+
+.card:hover .front{
+        transform:rotateY(-135deg);
+}
+
+.card:hover::after{
+   width: 0px;
+}
+
+.img_con{
+    width: 100%;
+    position: relative;
+}
+
+.back_head{
+    font-family: "Josefin Sans";
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+
+.img_con img{
+    height: 100%;
+    object-fit: contain;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.para{
+    background-image: url("./image/star.png");
+    padding: 2.85rem;
+    color: var(--seccol);
+    background-size: contain;
+    border-inline:2px solid var(--shadow);
+    border-bottom:2px solid var(--shadow);
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.back_msg{
+    margin-top: 1.85rem;
+    color: var(--black);
+}
+
+.back_msg_head{
+    font-size: 1.6rem;
+    text-align: justify;
+    font-family: "Josefin Sans";
+    line-height: 2.5rem;
+}
+
+.bestie{
+    font-family: "Josefin Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.85rem;
+}
+
+.msg{
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    line-height: 30px;
+    text-transform: capitalize;
+    font-family: "Passions Conflict", serif;
+    font-weight: 500;
+    font-size: 5.85rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px var(--maincolor),
+                            2px 2px 2px var(--maincolor),
+                            3px 3px 2px var(--maincolor);
+}
+
+
+@media screen and (max-width:768px) {
+
+    .container{
+        background-image: none;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .card{
+        height: 62rem;
+    }
+
+    .front{
+        grid-template-rows: 42rem 20rem;
+    }
+
+    .back{
+        background-size: 25rem;
+    }
+
+    .back_msg_head{
+        font-size: 2.5rem;
+        line-height: 30px;
+    }
+}
